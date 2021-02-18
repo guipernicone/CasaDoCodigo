@@ -2,6 +2,7 @@ package com.zup.cqc.controller;
 
 import com.zup.cqc.entity.author.Author;
 import com.zup.cqc.entity.author.form.CreateAuthorForm;
+import com.zup.cqc.entity.author.response.AuthorResponse;
 import com.zup.cqc.repository.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,12 +25,12 @@ public class AuthorController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<Author> createAuthor(@RequestBody @Valid CreateAuthorForm authorForm, UriComponentsBuilder uriBuilder) {
+    public ResponseEntity<AuthorResponse> createAuthor(@RequestBody @Valid CreateAuthorForm authorForm, UriComponentsBuilder uriBuilder) {
         Author author = authorForm.toModel();
         authorRepository.save(author);
 
         URI uri = uriBuilder.path("/author/{id}").buildAndExpand(author.getId()).toUri();
-        return ResponseEntity.created(uri).body(author);
+        return ResponseEntity.created(uri).body(author.buildResponse());
     }
 
 }
