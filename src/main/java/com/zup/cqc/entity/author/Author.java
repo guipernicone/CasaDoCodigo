@@ -59,8 +59,5 @@ public class Author {
         return registerDate;
     }
 
-    public AuthorResponse buildResponse() {
-        return new AuthorResponse(id, name, email, description, registerDate);
-    }
 }
 

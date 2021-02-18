@@ -30,8 +30,4 @@ public class Category {
     public String getName() {
         return name;
     }
-
-    public CategoryResponse buildResponse(){
-        return new CategoryResponse(this.id, this.name);
-    }
 }

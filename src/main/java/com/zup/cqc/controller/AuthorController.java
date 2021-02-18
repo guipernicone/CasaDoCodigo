@@ -30,7 +30,8 @@ public class AuthorController {
         authorRepository.save(author);
 
         URI uri = uriBuilder.path("/author/{id}").buildAndExpand(author.getId()).toUri();
-        return ResponseEntity.created(uri).body(author.buildResponse());
+        AuthorResponse authorResponse = new AuthorResponse(author);
+        return ResponseEntity.created(uri).body(authorResponse);
     }
 
 }

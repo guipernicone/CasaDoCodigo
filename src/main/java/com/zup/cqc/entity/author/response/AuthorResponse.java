@@ -1,5 +1,7 @@
 package com.zup.cqc.entity.author.response;
 
+import com.zup.cqc.entity.author.Author;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,12 +18,12 @@ public class AuthorResponse {
     private String description;
     private LocalDateTime registerDate;
 
-    public AuthorResponse(long id, String name, String email, String description, LocalDateTime registerDate) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.description = description;
-        this.registerDate = registerDate;
+    public AuthorResponse(Author author) {
+        this.id = author.getId();
+        this.name = author.getName();
+        this.email = author.getEmail();
+        this.description = author.getDescription();
+        this.registerDate = author.getRegisterDate();
     }
 
     public long getId() {

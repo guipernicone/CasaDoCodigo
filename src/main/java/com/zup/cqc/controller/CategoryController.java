@@ -27,6 +27,7 @@ public class CategoryController {
         categoryRepository.save(category);
 
         URI uri = uriBuilder.path("/category/{id}").buildAndExpand(category.getId()).toUri();
-        return ResponseEntity.created(uri).body(category.buildResponse());
+        CategoryResponse categoryResponse = new CategoryResponse(category);
+        return ResponseEntity.created(uri).body(categoryResponse);
     }
 }

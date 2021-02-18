@@ -1,12 +1,14 @@
 package com.zup.cqc.entity.category.response;
 
+import com.zup.cqc.entity.category.Category;
+
 public class CategoryResponse {
     private long id;
     private String name;
 
-    public CategoryResponse(long id, String name) {
-        this.id = id;
-        this.name = name;
+    public CategoryResponse(Category category) {
+        this.id = category.getId();
+        this.name = category.getName();
     }
 
     public long getId() {
