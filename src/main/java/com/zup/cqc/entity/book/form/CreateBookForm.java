@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.zup.cqc.entity.author.Author;
 import com.zup.cqc.entity.book.Book;
 import com.zup.cqc.entity.category.Category;
+import com.zup.cqc.entity.country.Country;
 import com.zup.cqc.validator.UniqueValue;
+import com.zup.cqc.validator.ValidId;
 
 import javax.persistence.EntityManager;
 import javax.validation.constraints.*;
@@ -42,9 +44,11 @@ public class CreateBookForm {
     private LocalDate publishDate;
 
     @NotNull(message="{NotNull}")
+    @ValidId(domainClass = Category.class, message="{ValidId}")
     private long categoryId;
 
     @NotNull(message="{NotNull}")
+    @ValidId(domainClass = Author.class, message="{ValidId}")
     private long authorId;
 
     public void setTitle(String title) {
