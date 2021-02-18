@@ -1,6 +1,7 @@
 package com.zup.cqc.entity.book.response;
 
 import com.zup.cqc.entity.author.Author;
+import com.zup.cqc.entity.book.Book;
 import com.zup.cqc.entity.category.Category;
 
 import javax.persistence.GeneratedValue;
@@ -12,8 +13,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class BookResponse {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
     private long id;
 
     private String title;
@@ -34,27 +34,17 @@ public class BookResponse {
 
     private Author author;
 
-    public BookResponse(
-            long id,
-            String title,
-            String resume,
-            String sumary,
-            BigDecimal price,
-            int numberOfPages,
-            String lsbn,
-            LocalDate publishDate,
-            Category category,
-            Author author) {
-        this.id = id;
-        this.title = title;
-        this.resume = resume;
-        this.sumary = sumary;
-        this.price = price;
-        this.numberOfPages = numberOfPages;
-        this.lsbn = lsbn;
-        this.publishDate = publishDate;
-        this.category = category;
-        this.author = author;
+    public BookResponse(Book book) {
+        this.id = book.getId();
+        this.title = book.getTitle();
+        this.resume = book.getResume();
+        this.sumary = book.getSumary();
+        this.price = book.getPrice();
+        this.numberOfPages = book.getNumberOfPages();
+        this.lsbn = book.getLsbn();
+        this.publishDate = book.getPublishDate();
+        this.category = book.getCategory();
+        this.author = book.getAuthor();
     }
 
     public long getId() {

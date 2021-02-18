@@ -52,6 +52,9 @@ public class Book {
     @ManyToOne
     private Author author;
 
+    @Deprecated
+    public Book(){}
+
     public Book(String title,
                 String resume,
                 String sumary,
@@ -76,18 +79,39 @@ public class Book {
         return id;
     }
 
-    public BookResponse buildResponse() {
-        return new BookResponse(
-                this.id,
-                this.title,
-                this.resume,
-                this.sumary,
-                this.price,
-                this.numberOfPages,
-                this.lsbn,
-                this.publishDate,
-                this.category,
-                this.author
-        );
+    public String getTitle() {
+        return title;
+    }
+
+    public String getResume() {
+        return resume;
+    }
+
+    public String getSumary() {
+        return sumary;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public int getNumberOfPages() {
+        return numberOfPages;
+    }
+
+    public String getLsbn() {
+        return lsbn;
+    }
+
+    public LocalDate getPublishDate() {
+        return publishDate;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public Author getAuthor() {
+        return author;
     }
 }
