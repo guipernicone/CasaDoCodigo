@@ -1,4 +1,4 @@
-package com.zup.cqc.author;
+package com.zup.cqc.entity.author;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -26,6 +26,9 @@ public class Author {
     private String description;
 
     private LocalDateTime registerDate;
+
+    @Deprecated
+    public Author(){}
 
     public Author(String name, String email, String description){
         this.name = name;

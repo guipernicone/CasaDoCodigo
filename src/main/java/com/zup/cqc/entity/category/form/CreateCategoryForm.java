@@ -1,6 +1,6 @@
-package com.zup.cqc.category.form;
+package com.zup.cqc.entity.category.form;
 
-import com.zup.cqc.category.Category;
+import com.zup.cqc.entity.category.Category;
 import com.zup.cqc.validator.UniqueValue;
 
 import javax.validation.constraints.NotBlank;

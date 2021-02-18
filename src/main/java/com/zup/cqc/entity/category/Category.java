@@ -1,4 +1,4 @@
-package com.zup.cqc.category;
+package com.zup.cqc.entity.category;
 
 
 import javax.persistence.*;
@@ -15,6 +15,8 @@ public class Category {
     @NotBlank(message = "{NotBlank}")
     private String name;
 
+    @Deprecated
+    public Category() {}
     public Category(String name) {
         this.name = name;
     }

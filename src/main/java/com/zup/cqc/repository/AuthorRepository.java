@@ -1,7 +1,7 @@
 package com.zup.cqc.repository;
 
-import com.zup.cqc.author.Author;
+import com.zup.cqc.entity.author.Author;
 import org.springframework.data.repository.CrudRepository;
 
-public interface AuthorRepository extends CrudRepository<Author, Integer> {
+public interface AuthorRepository extends CrudRepository<Author, Long> {
 }
