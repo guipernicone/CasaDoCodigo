@@ -1,6 +1,8 @@
 package com.zup.cqc.entity.category;
 
 
+import com.zup.cqc.entity.category.response.CategoryResponse;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
@@ -27,5 +29,9 @@ public class Category {
 
     public String getName() {
         return name;
+    }
+
+    public CategoryResponse buildResponse(){
+        return new CategoryResponse(this.id, this.name);
     }
 }

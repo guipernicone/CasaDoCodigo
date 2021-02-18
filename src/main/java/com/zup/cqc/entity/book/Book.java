@@ -3,6 +3,7 @@ package com.zup.cqc.entity.book;
 import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.zup.cqc.entity.author.Author;
+import com.zup.cqc.entity.book.response.BookResponse;
 import com.zup.cqc.entity.category.Category;
 
 import javax.persistence.*;
@@ -75,39 +76,18 @@ public class Book {
         return id;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public String getResume() {
-        return resume;
-    }
-
-    public String getSumary() {
-        return sumary;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public int getNumberOfPages() {
-        return numberOfPages;
-    }
-
-    public String getLsbn() {
-        return lsbn;
-    }
-
-    public LocalDate getPublishDate() {
-        return publishDate;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public Author getAuthor() {
-        return author;
+    public BookResponse buildResponse() {
+        return new BookResponse(
+                this.id,
+                this.title,
+                this.resume,
+                this.sumary,
+                this.price,
+                this.numberOfPages,
+                this.lsbn,
+                this.publishDate,
+                this.category,
+                this.author
+        );
     }
 }
