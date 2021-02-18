@@ -1,7 +1,7 @@
 package com.zup.cqc.controller;
 
-import com.zup.cqc.author.Author;
-import com.zup.cqc.author.form.CreateAuthorForm;
+import com.zup.cqc.entity.author.Author;
+import com.zup.cqc.entity.author.form.CreateAuthorForm;
 import com.zup.cqc.repository.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
