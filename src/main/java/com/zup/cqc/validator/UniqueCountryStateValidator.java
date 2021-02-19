@@ -27,8 +27,10 @@ public class UniqueCountryStateValidator implements ConstraintValidator<UniqueCo
 
     @Override
     public boolean isValid(Object value, ConstraintValidatorContext constraintValidatorContext) {
-        Query query = entityManager.createQuery("select " + stateField + " from " + countryClass.getName() +"  where " + countryIdFieldBdAlias + "=:value");
-        query.setParameter("value",new BeanWrapperImpl(value).getPropertyValue(countryIdField));
+        Query query = entityManager.createQuery("select " + stateField + " from " + countryClass.getName() +
+                "  where " + countryIdFieldBdAlias + "=:countryId and " + stateField + "=:stateName");
+        query.setParameter("countryId",new BeanWrapperImpl(value).getPropertyValue(countryIdField));
+        query.setParameter("stateName",new BeanWrapperImpl(value).getPropertyValue(stateField));
         List<?> list = query.getResultList();
         return list.isEmpty();
     }

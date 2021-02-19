@@ -6,6 +6,7 @@ import com.zup.cqc.entity.book.response.BookDetailsResponse;
 import com.zup.cqc.entity.book.response.BookProjection;
 import com.zup.cqc.entity.book.response.BookResponse;
 import com.zup.cqc.repository.BookRepository;
+import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;

@@ -23,7 +23,7 @@ public class StateResponse {
         return name;
     }
 
-    public CountryResponse getCountryResponse() {
+    public CountryResponse getCountry() {
         return country;
     }
 }
