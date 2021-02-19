@@ -14,6 +14,6 @@ public @interface UniqueCountryState {
     Class<? extends Payload>[] payload() default { };
     String stateField();
     String countryIdField();
-    String countryIdFieldAlias();
+    String countryIdFieldBdAlias();
     Class<?> countryClass();
 }

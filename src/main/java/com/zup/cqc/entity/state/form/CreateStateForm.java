@@ -9,7 +9,13 @@ import javax.persistence.EntityManager;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-@UniqueCountryState(countryIdFieldAlias = "country_id", countryIdField = "countryId", stateField = "name", countryClass = State.class)
+@UniqueCountryState(
+        countryIdFieldBdAlias = "country_id",
+        countryIdField = "countryId",
+        stateField = "name",
+        countryClass = State.class,
+        message="{UniqueCountryState}"
+)
 public class CreateStateForm {
 
     @NotNull

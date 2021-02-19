@@ -12,7 +12,7 @@ import java.util.List;
 public class UniqueCountryStateValidator implements ConstraintValidator<UniqueCountryState, Object> {
     private String stateField;
     private String countryIdField;
-    private String countryIdFieldAlias;
+    private String countryIdFieldBdAlias;
     private Class<?> countryClass;
     @PersistenceContext
     private EntityManager entityManager;
@@ -21,13 +21,13 @@ public class UniqueCountryStateValidator implements ConstraintValidator<UniqueCo
     public void initialize(UniqueCountryState params) {
         this.stateField = params.stateField();
         this.countryIdField = params.countryIdField();
-        this.countryIdFieldAlias = params.countryIdFieldAlias();
+        this.countryIdFieldBdAlias = params.countryIdFieldBdAlias();
         this.countryClass = params.countryClass();
     }
 
     @Override
     public boolean isValid(Object value, ConstraintValidatorContext constraintValidatorContext) {
-        Query query = entityManager.createQuery("select " + stateField + " from " + countryClass.getName() +"  where " + countryIdFieldAlias + "=:value");
+        Query query = entityManager.createQuery("select " + stateField + " from " + countryClass.getName() +"  where " + countryIdFieldBdAlias + "=:value");
         query.setParameter("value",new BeanWrapperImpl(value).getPropertyValue(countryIdField));
         List<?> list = query.getResultList();
         return list.isEmpty();

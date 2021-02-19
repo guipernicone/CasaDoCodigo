@@ -11,9 +11,9 @@ public class ValidationControllerAdvice {
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ValidationError handlerValidationError(MethodArgumentNotValidException exception){
-        ValidationError validationError = new ValidationError();
-        validationError.buildError(exception.getFieldErrors());
+    public MethodArgumentNotValidError handlerValidationError(MethodArgumentNotValidException exception){
+        MethodArgumentNotValidError validationError = new MethodArgumentNotValidError();
+        validationError.buildError(exception);
         return validationError;
     }
 }
