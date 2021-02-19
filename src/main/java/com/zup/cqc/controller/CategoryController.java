@@ -22,7 +22,7 @@ public class CategoryController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<CategoryResponse> createCategory(@RequestBody @Valid CreateCategoryForm categoryForm, UriComponentsBuilder uriBuilder ){
+    public ResponseEntity<CategoryResponse> createCategory(@RequestBody @Valid CreateCategoryForm categoryForm, UriComponentsBuilder uriBuilder){
         Category category = categoryForm.toModel();
         categoryRepository.save(category);
 
