@@ -33,7 +33,7 @@ public class CreateClientForm {
     @UniqueValue(domainClass = Client.class, fieldName = "email")
     private String email;
     @NotBlank(message = "{NotBlank}")
-    @CPForCNPJ
+    @CPForCNPJ(message= "{CPForCNPJ}")
     private String document;
     @NotBlank(message = "{NotBlank}")
     private String address;
