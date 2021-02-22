@@ -1,4 +1,4 @@
-package com.zup.cqc.controller.errorhandler;
+package com.zup.cqc.controller.errorhandler.MethodArgumentNotValid;
 
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
