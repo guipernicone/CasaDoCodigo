@@ -9,6 +9,7 @@ import com.zup.cqc.validator.UniqueValue;
 import com.zup.cqc.validator.ValidId;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityNotFoundException;
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -91,6 +92,9 @@ public class CreateBookForm {
         Author author = entityManager.find(Author.class, this.authorId);
         Category category = entityManager.find(Category.class, this.categoryId);
 
+        if ( author == null || category == null){
+            throw new EntityNotFoundException("Entity not found");
+        }
         return new Book(
                 this.title,
                 this.resume,

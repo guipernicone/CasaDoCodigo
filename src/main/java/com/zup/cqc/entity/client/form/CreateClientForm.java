@@ -10,6 +10,7 @@ import com.zup.cqc.validator.ValidCountryState;
 import com.zup.cqc.validator.ValidId;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityNotFoundException;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -115,8 +116,16 @@ public class CreateClientForm {
         Country country = entityManager.find(Country.class, this.countryId);
         State state = null;
 
+        if (country == null){
+            throw new EntityNotFoundException("Entity Country with id" + this.countryId + "was not found");
+        }
+
         if (this.stateId != null){
             state = entityManager.find(State.class, this.stateId);
+
+            if (state == null){
+                throw new EntityNotFoundException("Entity State with id" + this.stateId + "was not found");
+            }
         }
 
         return new Client(

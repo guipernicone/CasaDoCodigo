@@ -6,6 +6,7 @@ import com.zup.cqc.validator.UniqueCountryState;
 import com.zup.cqc.validator.ValidId;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityNotFoundException;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -41,9 +42,12 @@ public class CreateStateForm {
         return name;
     }
 
-    public State toModel(EntityManager entityManager) {
+    public State toModel(EntityManager entityManager) throws EntityNotFoundException {
         Country country = entityManager.find(Country.class, this.countryId);
 
+        if (country == null){
+            throw new EntityNotFoundException("Entity Country with id" + this.countryId + "was not found");
+        }
         return new State(this.name, country);
     }
 }

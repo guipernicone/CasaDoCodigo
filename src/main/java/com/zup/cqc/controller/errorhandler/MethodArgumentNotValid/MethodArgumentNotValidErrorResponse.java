@@ -1,4 +1,4 @@
-package com.zup.cqc.controller.errorhandler;
+package com.zup.cqc.controller.errorhandler.MethodArgumentNotValid;
 
 public class MethodArgumentNotValidErrorResponse {
     private String message;
