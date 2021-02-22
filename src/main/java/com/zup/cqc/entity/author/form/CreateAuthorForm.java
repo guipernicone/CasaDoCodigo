@@ -1,6 +1,6 @@
-package com.zup.cqc.author.form;
+package com.zup.cqc.entity.author.form;
 
-import com.zup.cqc.author.Author;
+import com.zup.cqc.entity.author.Author;
 import com.zup.cqc.validator.UniqueValue;
 
 import javax.validation.constraints.Email;

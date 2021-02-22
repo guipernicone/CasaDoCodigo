@@ -1,12 +1,11 @@
-package com.zup.cqc.category;
-
+package com.zup.cqc.entity.country;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "category")
-public class Category {
+@Table(name = "country")
+public class Country {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -15,7 +14,10 @@ public class Category {
     @NotBlank(message = "{NotBlank}")
     private String name;
 
-    public Category(String name) {
+    @Deprecated
+    public Country(){}
+
+    public Country(String name){
         this.name = name;
     }
 

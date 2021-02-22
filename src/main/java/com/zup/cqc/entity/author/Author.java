@@ -1,4 +1,6 @@
-package com.zup.cqc.author;
+package com.zup.cqc.entity.author;
+
+import com.zup.cqc.entity.author.response.AuthorResponse;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -27,6 +29,9 @@ public class Author {
 
     private LocalDateTime registerDate;
 
+    @Deprecated
+    public Author(){}
+
     public Author(String name, String email, String description){
         this.name = name;
         this.email = email;
@@ -53,5 +58,6 @@ public class Author {
     public LocalDateTime getRegisterDate() {
         return registerDate;
     }
+
 }
 
